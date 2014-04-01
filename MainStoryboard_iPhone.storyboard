@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9iC-DJ-ELZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="9iC-DJ-ELZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Trinary Tree View Controller-->
         <scene sceneID="Sir-bF-7gD">
             <objects>
                 <viewController id="dT9-mZ-LUz" customClass="TrinaryTreeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9vy-Ow-vZw"/>
+                        <viewControllerLayoutGuide type="bottom" id="CUl-uY-Nak"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Jd2-xw-g5R">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.9396537251902225" green="0.99456521739130432" blue="0.97025310738244663" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="MOy-ij-lkr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3SY-vu-p7Z">
@@ -20,6 +24,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23F-bo-ZYn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -29,11 +34,16 @@
         <scene sceneID="439-Vv-kqA">
             <objects>
                 <viewController id="uWt-sh-1EX" customClass="AddNodeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="THd-yA-t24"/>
+                        <viewControllerLayoutGuide type="bottom" id="jf6-Yd-ygT"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9Db-VZ-naw">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="12" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OKh-I0-Plj">
+                                <rect key="frame" x="20" y="100" width="280" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="RMb-Sl-2JD"/>
                                 </constraints>
@@ -41,6 +51,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enter Node Content" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="m87-gf-diX">
+                                <rect key="frame" x="20" y="53" width="280" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,12 +59,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="m87-gf-diX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Ap5-4B-VgG"/>
+                            <constraint firstAttribute="trailing" secondItem="m87-gf-diX" secondAttribute="trailing" constant="20" symbolic="YES" id="Ap5-4B-VgG"/>
                             <constraint firstItem="m87-gf-diX" firstAttribute="top" secondItem="9Db-VZ-naw" secondAttribute="top" constant="53" id="Dbw-pg-127"/>
                             <constraint firstItem="OKh-I0-Plj" firstAttribute="top" secondItem="9Db-VZ-naw" secondAttribute="top" constant="100" id="Mf4-92-yUV"/>
-                            <constraint firstAttribute="trailing" secondItem="OKh-I0-Plj" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="lmu-0R-FeP"/>
-                            <constraint firstItem="OKh-I0-Plj" firstAttribute="leading" secondItem="9Db-VZ-naw" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wwC-0A-kYC"/>
-                            <constraint firstItem="m87-gf-diX" firstAttribute="leading" secondItem="9Db-VZ-naw" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="x5r-YP-wT6"/>
+                            <constraint firstAttribute="trailing" secondItem="OKh-I0-Plj" secondAttribute="trailing" constant="20" symbolic="YES" id="lmu-0R-FeP"/>
+                            <constraint firstItem="OKh-I0-Plj" firstAttribute="leading" secondItem="9Db-VZ-naw" secondAttribute="leading" constant="20" symbolic="YES" id="wwC-0A-kYC"/>
+                            <constraint firstItem="m87-gf-diX" firstAttribute="leading" secondItem="9Db-VZ-naw" secondAttribute="leading" constant="20" symbolic="YES" id="x5r-YP-wT6"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -76,14 +87,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0WN-qa-g3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="-570"/>
+            <point key="canvasLocation" x="1197" y="-46"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cML-Uv-jHg">
             <objects>
                 <navigationController id="9iC-DJ-ELZ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pgL-CR-ZLM">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="pgL-CR-ZLM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -98,22 +110,6 @@
             <point key="canvasLocation" x="76" y="-46"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddNodeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddNodeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissView:"/>
-                <relationship kind="action" name="handleTappedDone:"/>
-                <relationship kind="outlet" name="nodeContentTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TrinaryTreeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrinaryTreeViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

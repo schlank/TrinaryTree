@@ -21,7 +21,23 @@
 		DEBC06C912AC68E500FC8C9D /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBC06C812AC68E500FC8C9D /* Node.m */; };
 		DEE04D1C12AC9F3100B946C8 /* TrinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE04D1B12AC9F3100B946C8 /* TrinaryTree.m */; };
 		DEE93BBD12AC316700379D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEE93BBC12AC316700379D72 /* Localizable.strings */; };
+		F1910CB018EA6B0C00AE85B6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1910CAF18EA6B0B00AE85B6 /* XCTest.framework */; };
+		F1910CB118EA6B0C00AE85B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		F1910CB218EA6B0C00AE85B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		F1910CB818EA6B0C00AE85B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1910CB618EA6B0C00AE85B6 /* InfoPlist.strings */; };
+		F1910CBA18EA6B0C00AE85B6 /* TrinaryTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1910CB918EA6B0C00AE85B6 /* TrinaryTreeTests.m */; };
+		F1910CC618EA75A600AE85B6 /* TestTrees.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1910CC518EA75A600AE85B6 /* TestTrees.plist */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F1910CBC18EA6B0C00AE85B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
+			remoteInfo = TrinaryTree;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,6 +62,13 @@
 		DEE04D1A12AC9F3100B946C8 /* TrinaryTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrinaryTree.h; sourceTree = "<group>"; };
 		DEE04D1B12AC9F3100B946C8 /* TrinaryTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrinaryTree.m; sourceTree = "<group>"; };
 		DEE93BBA12AC313900379D72 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F1910CAE18EA6B0B00AE85B6 /* TrinaryTreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrinaryTreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1910CAF18EA6B0B00AE85B6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F1910CB518EA6B0C00AE85B6 /* TrinaryTreeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TrinaryTreeTests-Info.plist"; sourceTree = "<group>"; };
+		F1910CB718EA6B0C00AE85B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F1910CB918EA6B0C00AE85B6 /* TrinaryTreeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrinaryTreeTests.m; sourceTree = "<group>"; };
+		F1910CBB18EA6B0C00AE85B6 /* TrinaryTreeTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrinaryTreeTests-Prefix.pch"; sourceTree = "<group>"; };
+		F1910CC518EA75A600AE85B6 /* TestTrees.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestTrees.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,18 +82,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1910CAB18EA6B0B00AE85B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1910CB018EA6B0C00AE85B6 /* XCTest.framework in Frameworks */,
+				F1910CB218EA6B0C00AE85B6 /* UIKit.framework in Frameworks */,
+				F1910CB118EA6B0C00AE85B6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F1910CC718EA863700AE85B6 /* TrinaryTree */,
 				DEB1C65412AC2B0000662679 /* AddNodeViewController.h */,
 				DEB1C65512AC2B0000662679 /* AddNodeViewController.m */,
-				DEBC06C712AC68E500FC8C9D /* Node.h */,
-				DEBC06C812AC68E500FC8C9D /* Node.m */,
-				DEE04D1A12AC9F3100B946C8 /* TrinaryTree.h */,
-				DEE04D1B12AC9F3100B946C8 /* TrinaryTree.m */,
 				1D3623240D0F684500981E51 /* TrinaryTreeAppDelegate.h */,
 				1D3623250D0F684500981E51 /* TrinaryTreeAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* TrinaryTreeViewController.h */,
@@ -83,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* TrinaryTree.app */,
+				F1910CAE18EA6B0B00AE85B6 /* TrinaryTreeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +125,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				F1910CB318EA6B0C00AE85B6 /* TrinaryTreeTests */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -127,8 +159,48 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+				F1910CAF18EA6B0B00AE85B6 /* XCTest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1910CB318EA6B0C00AE85B6 /* TrinaryTreeTests */ = {
+			isa = PBXGroup;
+			children = (
+				F1910CB918EA6B0C00AE85B6 /* TrinaryTreeTests.m */,
+				F1910CC418EA75A600AE85B6 /* TestData */,
+				F1910CB418EA6B0C00AE85B6 /* Supporting Files */,
+			);
+			path = TrinaryTreeTests;
+			sourceTree = "<group>";
+		};
+		F1910CB418EA6B0C00AE85B6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F1910CB618EA6B0C00AE85B6 /* InfoPlist.strings */,
+				F1910CB518EA6B0C00AE85B6 /* TrinaryTreeTests-Info.plist */,
+				F1910CBB18EA6B0C00AE85B6 /* TrinaryTreeTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F1910CC418EA75A600AE85B6 /* TestData */ = {
+			isa = PBXGroup;
+			children = (
+				F1910CC518EA75A600AE85B6 /* TestTrees.plist */,
+			);
+			path = TestData;
+			sourceTree = "<group>";
+		};
+		F1910CC718EA863700AE85B6 /* TrinaryTree */ = {
+			isa = PBXGroup;
+			children = (
+				DEBC06C712AC68E500FC8C9D /* Node.h */,
+				DEBC06C812AC68E500FC8C9D /* Node.m */,
+				DEE04D1A12AC9F3100B946C8 /* TrinaryTree.h */,
+				DEE04D1B12AC9F3100B946C8 /* TrinaryTree.m */,
+			);
+			name = TrinaryTree;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,13 +223,36 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* TrinaryTree.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F1910CAD18EA6B0B00AE85B6 /* TrinaryTreeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1910CC018EA6B0C00AE85B6 /* Build configuration list for PBXNativeTarget "TrinaryTreeTests" */;
+			buildPhases = (
+				F1910CAA18EA6B0B00AE85B6 /* Sources */,
+				F1910CAB18EA6B0B00AE85B6 /* Frameworks */,
+				F1910CAC18EA6B0B00AE85B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1910CBD18EA6B0C00AE85B6 /* PBXTargetDependency */,
+			);
+			name = TrinaryTreeTests;
+			productName = TrinaryTreeTests;
+			productReference = F1910CAE18EA6B0B00AE85B6 /* TrinaryTreeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					F1910CAD18EA6B0B00AE85B6 = {
+						TestTargetID = 1D6058900D05DD3D006BFB54;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TrinaryTree" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -168,12 +263,14 @@
 				Japanese,
 				French,
 				German,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* TrinaryTree */,
+				F1910CAD18EA6B0B00AE85B6 /* TrinaryTreeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -188,6 +285,15 @@
 				DEBA103512B081C500015193 /* Icon.png in Resources */,
 				DE6A69CE176FF867002FE959 /* Default-568h@2x.png in Resources */,
 				DE88DDD2177027890023B95A /* MainStoryboard_iPhone.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1910CAC18EA6B0B00AE85B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1910CC618EA75A600AE85B6 /* TestTrees.plist in Resources */,
+				F1910CB818EA6B0C00AE85B6 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +313,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1910CAA18EA6B0B00AE85B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1910CBA18EA6B0C00AE85B6 /* TrinaryTreeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1910CBD18EA6B0C00AE85B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D6058900D05DD3D006BFB54 /* TrinaryTree */;
+			targetProxy = F1910CBC18EA6B0C00AE85B6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DEE93BBC12AC316700379D72 /* Localizable.strings */ = {
@@ -216,6 +338,14 @@
 				DEE93BBA12AC313900379D72 /* English */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		F1910CB618EA6B0C00AE85B6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F1910CB718EA6B0C00AE85B6 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -232,7 +362,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TrinaryTree_Prefix.pch;
 				INFOPLIST_FILE = "TrinaryTree-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = TrinaryTree;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -245,7 +377,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TrinaryTree_Prefix.pch;
 				INFOPLIST_FILE = "TrinaryTree-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = TrinaryTree;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -253,11 +387,11 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -265,13 +399,100 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		F1910CBE18EA6B0C00AE85B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TrinaryTree.app/TrinaryTree";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TrinaryTreeTests/TrinaryTreeTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "TrinaryTreeTests/TrinaryTreeTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F1910CBF18EA6B0C00AE85B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TrinaryTree.app/TrinaryTree";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TrinaryTreeTests/TrinaryTreeTests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "TrinaryTreeTests/TrinaryTreeTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -295,6 +516,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F1910CC018EA6B0C00AE85B6 /* Build configuration list for PBXNativeTarget "TrinaryTreeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1910CBE18EA6B0C00AE85B6 /* Debug */,
+				F1910CBF18EA6B0C00AE85B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
