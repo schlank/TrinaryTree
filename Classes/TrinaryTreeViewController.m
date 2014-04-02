@@ -153,7 +153,7 @@ const double kVerticalOffset = 50.0f;
                                        aPointValue.CGPointValue.y - (buttonHeight / 2.0),
                                        buttonWidth,
                                        buttonHeight);
-        [self.view addSubview:aNodeButton]; 
+        [self.view addSubview:aNodeButton];
     }
 }
 

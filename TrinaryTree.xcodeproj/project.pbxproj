@@ -25,8 +25,11 @@
 		F1910CB118EA6B0C00AE85B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		F1910CB218EA6B0C00AE85B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		F1910CB818EA6B0C00AE85B6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F1910CB618EA6B0C00AE85B6 /* InfoPlist.strings */; };
-		F1910CBA18EA6B0C00AE85B6 /* TrinaryTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1910CB918EA6B0C00AE85B6 /* TrinaryTreeTests.m */; };
 		F1910CC618EA75A600AE85B6 /* TestTrees.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1910CC518EA75A600AE85B6 /* TestTrees.plist */; };
+		F1910CCC18EA9A7800AE85B6 /* TrinaryTreeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1910CB918EA6B0C00AE85B6 /* TrinaryTreeTests.m */; };
+		F1910CCD18EA9B4C00AE85B6 /* TrinaryTree.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE04D1B12AC9F3100B946C8 /* TrinaryTree.m */; };
+		F1910CCE18EA9B5900AE85B6 /* Node.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBC06C812AC68E500FC8C9D /* Node.m */; };
+		F1910CD018EA9CAE00AE85B6 /* TestTrees.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1910CC518EA75A600AE85B6 /* TestTrees.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,6 +285,7 @@
 			files = (
 				DE8A42F712AC182A00BB7261 /* README.md in Resources */,
 				DEE93BBD12AC316700379D72 /* Localizable.strings in Resources */,
+				F1910CD018EA9CAE00AE85B6 /* TestTrees.plist in Resources */,
 				DEBA103512B081C500015193 /* Icon.png in Resources */,
 				DE6A69CE176FF867002FE959 /* Default-568h@2x.png in Resources */,
 				DE88DDD2177027890023B95A /* MainStoryboard_iPhone.storyboard in Resources */,
@@ -317,7 +321,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1910CBA18EA6B0C00AE85B6 /* TrinaryTreeTests.m in Sources */,
+				F1910CCC18EA9A7800AE85B6 /* TrinaryTreeTests.m in Sources */,
+				F1910CCD18EA9B4C00AE85B6 /* TrinaryTree.m in Sources */,
+				F1910CCE18EA9B5900AE85B6 /* Node.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

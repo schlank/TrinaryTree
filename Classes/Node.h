@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+
+
+
 @interface Node : NSObject
 
 @property (nonatomic, strong) NSNumber *nodeContent;
@@ -22,3 +25,5 @@
 @property (nonatomic, strong) Node *rightNode;
 
 @end
+
+
