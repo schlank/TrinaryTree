@@ -24,6 +24,9 @@
 @property (nonatomic, strong) Node *middleNode;
 @property (nonatomic, strong) Node *rightNode;
 
+- (void)insertNode:(Node *)newNode;
+- (void)deleteNode:(Node *)newNode;
+
 @end
 
 

@@ -23,5 +23,6 @@
 - (void)listTreeBranchStartingAtNode:(Node *)aNode;
 - (void)insertNode:(Node *)aNode;
 - (void)deleteNode:(Node *)aNode;
+- (void)deleteNodeWithContent:(NSNumber*)nodeContent;
 
 @end

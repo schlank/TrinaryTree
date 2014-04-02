@@ -145,9 +145,19 @@ As a mobile dev, I'd like to implement the insert and delete methods of a tri-na
         
         NSLog(@"insertNode: %@", newNode.nodeContent);
         [self.trinaryTree insertNode:newNode];
+        
+        //Our Node Category enumerator
+        [self.trinaryTree enumerateNodesUsingBlock:^(Node *node, BOOL *stop) {
+            NSLog(@"enumerateNodesUsingBlock: %@", node.nodeContent);
+            if(node.leftNode)
+                XCTAssertTrue([node.leftNode.nodeContent intValue] < [node.nodeContent intValue], @"Left Node are greater than Parent. Parent:%@ leftNode:%@", node.nodeContent, node.leftNode.nodeContent);
+            if(node.rightNode)
+                XCTAssertTrue([node.rightNode.nodeContent intValue]>[node.nodeContent intValue], @"Right Node is Less than Parent. Parent:%@ leftNode:%@", node.nodeContent, node.rightNode.nodeContent);
+            if(node.middleNode)
+                XCTAssertTrue([node.middleNode.nodeContent intValue] == [node.nodeContent intValue], @"Middle Node is not Equal to Parent:%@ middle node:%@", node.nodeContent, node.middleNode.nodeContent);
+        } andRootNode:self.trinaryTree.rootNode];
     }];
     
-//Now the challenge presents itself. :)
 //We added all the test data to the tree, but how do we verify the correct results to our specifications as follows?
 //    1. left node being values < parent
 //    2. the right node values > parent
@@ -165,33 +175,35 @@ As a mobile dev, I'd like to implement the insert and delete methods of a tri-na
         Yes: Underpands Check - Profit
      
      **/
-    
-    //Our custom Node enumerator
-    [self.trinaryTree enumerateNodesUsingBlock:^(Node *node, BOOL *stop) {
-        NSLog(@"enumerateNodesUsingBlock: %@", node.nodeContent);
-        if(node.leftNode)
-            XCTAssertTrue([node.leftNode.nodeContent intValue] < [node.nodeContent intValue], @"Left Node are greater than Parent. Parent:%@ leftNode:%@", node.nodeContent, node.leftNode.nodeContent);
-        if(node.rightNode)
-            XCTAssertTrue([node.rightNode.nodeContent intValue]>[node.nodeContent intValue], @"Right Node is Less than Parent. Parent:%@ leftNode:%@", node.nodeContent, node.rightNode.nodeContent);
-        if(node.middleNode)
-            XCTAssertTrue([node.middleNode.nodeContent intValue] == [node.nodeContent intValue], @"Middle Node is not Equal to Parent:%@ middle node:%@", node.nodeContent, node.middleNode.nodeContent);
-        } andRootNode:self.trinaryTree.rootNode];
 }
 
 /*
  How to test our Delete...
     1.  We will still want to maintain our 3 laws up above, so we'll test those after a delete operation.
     2.  We will also want to remove multiple times with a variety of tree sizes and numbers.
-    3.  Lets keep track of the count after each delete as well.  If we remove one and the count went doen 2, we have a problem.
- 
- */
-
-- (void)testA2_Delete
+    3.  Lets keep track of the count after each delete as well.  If we remove one and the count went doen 2, we have a problem.  Also, what if the middle node is 2, and we are asked to delete 2.
+*/
+//For this Test I added 3 to the test numbers.  Adding  2 - 2  - 3 nodes will create a situation that will fail our test (listed in #3 above).
+- (void)testA2_DeleteNode
 {
-    XCTFail(@"not implemented yet.");
+    //Populate the tree.
+    NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
+    [standardTree enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Node *newNode = [[Node alloc] init];
+        newNode.nodeContent = (NSNumber*)obj;
+        NSLog(@"insertNode: %@", newNode.nodeContent);
+        [self.trinaryTree insertNode:newNode];
+    }];
+    [self.trinaryTree deleteNodeWithContent:2];
+    
+    //Check the Count
+    XCTAssertTrue([standardTree count] == [self.trinaryTree nodeCount], @"Our node count is off!  Check your insertNode method and tests.");
+    
+    
+    
 }
 
-//I like to make sure my category count function is correct.
+//I like to making sure our count matches our tree.
 - (void)testA3_treeCount
 {
     NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
@@ -202,7 +214,7 @@ As a mobile dev, I'd like to implement the insert and delete methods of a tri-na
         [self.trinaryTree insertNode:newNode];
     }];
     XCTAssertTrue([standardTree count] == [self.trinaryTree nodeCount], @"Our node count is off!  Check your insert code and tests.");
-    
 }
+//Re-run tests on my implemenation of TrinaryTree
 
 @end
