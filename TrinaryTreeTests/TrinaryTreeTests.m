@@ -9,9 +9,10 @@
 
 #import <XCTest/XCTest.h>
 
-//Class in test
+//Classes in test
 #import "TrinaryTree.h"
 #import "Node.h"
+
 
 
 //Test Friend Category
@@ -49,13 +50,8 @@
 @end
 
 
-/**
- I love it when the test class uses a delegate.  It makes verification tests possible without mocking.
- Just make the XCTestCase a delegate, and the functions are called on the XCTestCase class!
- **/
-@interface TrinaryTreeTests : XCTestCase <TrinaryTreeDelegate>
+@interface TrinaryTreeTests : XCTestCase
 
-@property (nonatomic, retain) id<TrinaryTreeDelegate> delegate;
 @property (nonatomic, strong) TrinaryTree *trinaryTree;
 
 @end
@@ -66,7 +62,6 @@
 {
     [super setUp];
     self.trinaryTree = [[TrinaryTree alloc] init];
-    self.trinaryTree.delegate = self;
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -98,10 +93,8 @@
     self.trinaryTree = nil;
     self.trinaryTree = [[TrinaryTree alloc] init];
     NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
-    [standardTree enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Node *newNode = [[Node alloc] init];
-        newNode.nodeContent = (NSNumber*)obj;
-        
+    [standardTree enumerateObjectsUsingBlock:^(NSNumber *num, NSUInteger idx, BOOL *stop) {
+        Node *newNode = [Node nodeWithNumber:num];
         NSLog(@"insertNode: %@", newNode.nodeContent);
         [self.trinaryTree insertNode:newNode];
     }];
@@ -145,18 +138,6 @@
         XCTAssertTrue(smallestNodeValueToTest<=[node.nodeContent intValue], @"Expected:%d Actual:%d", [node.nodeContent intValue], smallestNodeValueToTest);
         
     } andRootNode:self.trinaryTree.rootNode];
-}
-
-#pragma mark - TrinaryTreeDelegate Methods
-
-- (void)trinaryTreeDidInsertNode:(Node *)aNode
-{
-    
-}
-
-- (void)trinaryTreeWillDeleteNode:(Node *)aNode
-{
-    
 }
 
 #pragma mark - Tests
@@ -257,7 +238,6 @@ As a mobile dev, I'd like to implement the insert and delete methods of a tri-na
         //Check the Count
         XCTAssertTrue((startingCount-1) == [self.trinaryTree nodeCount], @"Removing Node:%@ Our node count is wrong after Delete. Tree Counts: Expected:%u Actual%d", nodeToDelete, (startingCount-1), [self.trinaryTree nodeCount]);
     }];
-    
 }
 
 

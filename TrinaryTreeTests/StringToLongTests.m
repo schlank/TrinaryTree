@@ -65,11 +65,10 @@
     long stringLonged = [longString toLong];
     XCTAssertTrue(stringLonged == desiredResult, @"Coversion Failed Actual:%ld Expected:%lld", stringLonged, desiredResult);
     
-    
-//    desiredResult = 4129.0;
-//    longString = @"9999";
-//    stringLonged = [longString toLong];
-//    XCTAssertFalse(stringLonged == desiredResult, @"Coversion SHOULD Fail Actual:%ld Expected:%lld", stringLonged, desiredResult);
+    desiredResult = 4129.0;
+    longString = @"9999";
+    stringLonged = [longString toLong];
+    XCTAssertFalse(stringLonged == desiredResult, @"Coversion SHOULD Fail Actual:%ld Expected:%lld", stringLonged, desiredResult);
 }
 
 @end
