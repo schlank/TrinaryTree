@@ -24,8 +24,17 @@
 @property (nonatomic, strong) Node *middleNode;
 @property (nonatomic, strong) Node *rightNode;
 
+- (id)initWithNumber:(NSNumber *)nodeContent;
++ (id)nodeWithNumber:(NSNumber*)nodeContent;
+
+#pragma mark - Mutating Methods
 - (void)insertNode:(Node *)newNode;
-- (void)deleteNode:(Node *)newNode;
+
+#pragma mark - Traversing Methods
+- (Node*)smallestNode;
+- (Node*)leafMostNode:(Node *)currentNode;
+- (Node*)nodeWithValue:(int)nodeValue;
+
 
 @end
 

@@ -78,6 +78,7 @@
     self.trinaryTree = nil;
 }
 
+//Fetch our test data by key from our test plist file.
 - (NSArray*)treeTestNumbersWithKey:(NSString*)testKey
 {
     //Test data will be loaded from a plist file and be loaded into the tree.
@@ -90,8 +91,12 @@
     return [settingsDictionary objectForKey:testKey];
 }
 
-- (void)insertTestNumbersWithKey:(NSString*)testKey
+//Populate our test tree from a plist by a test key
+- (void)populateTestTreeWithKey:(NSString*)testKey
 {
+    //Reset the tree.
+    self.trinaryTree = nil;
+    self.trinaryTree = [[TrinaryTree alloc] init];
     NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
     [standardTree enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Node *newNode = [[Node alloc] init];
@@ -100,6 +105,46 @@
         NSLog(@"insertNode: %@", newNode.nodeContent);
         [self.trinaryTree insertNode:newNode];
     }];
+}
+
+
+
+//This verifies our 3 laws of Node integrity on each node in the true.
+//1. the left node being values < parent
+//2. the right node values > parent
+//3. the middle node values == parent
+- (void)verifyTreeIntegrity
+{
+    //Verify we have our tree set up and with test data.
+    XCTAssertNotNil(self.trinaryTree, @"Initialize your trinaryTree!");
+    XCTAssertTrue([self.trinaryTree nodeCount]>0, @"populate your trinaryTree!");
+    
+    Node *leftMostNode = self.trinaryTree.rootNode;
+    while(leftMostNode.leftNode !=nil)
+        leftMostNode = leftMostNode.leftNode;
+    
+    int smallestNodeValueToTest = [leftMostNode.nodeContent intValue];
+    
+    //Our Node Category enumerator
+    [self.trinaryTree enumerateNodesUsingBlock:^(Node *node, BOOL *stop) {
+        
+        NSLog(@"enumerateNodesUsingBlock: %@", node.nodeContent);
+
+        //1. the left node being values < parent
+        if(node.leftNode)
+            XCTAssertTrue([node.leftNode.nodeContent intValue] < [node.nodeContent intValue], @"Left Node are greater than Parent. Parent:%@ leftNode:%@", node.nodeContent, node.leftNode.nodeContent);
+        
+        //2. the right node values > parent
+        if(node.rightNode)
+            XCTAssertTrue([node.rightNode.nodeContent intValue]>[node.nodeContent intValue], @"Right Node is Less than Parent. Parent:%@ leftNode:%@", node.nodeContent, node.rightNode.nodeContent);
+        
+        //3. the middle node values == parent
+        if(node.middleNode)
+            XCTAssertTrue([node.middleNode.nodeContent intValue] == [node.nodeContent intValue], @"Middle Node is not Equal to Parent:%@ middle node:%@", node.nodeContent, node.middleNode.nodeContent);
+        
+        XCTAssertTrue(smallestNodeValueToTest<=[node.nodeContent intValue], @"Expected:%d Actual:%d", [node.nodeContent intValue], smallestNodeValueToTest);
+        
+    } andRootNode:self.trinaryTree.rootNode];
 }
 
 #pragma mark - TrinaryTreeDelegate Methods
@@ -117,6 +162,8 @@
 #pragma mark - Tests
 
 /**
+Story Definition:
+ 
 As a mobile dev, I'd like to implement the insert and delete methods of a tri-nary tree.
 
  Acceptance:
@@ -124,97 +171,94 @@ As a mobile dev, I'd like to implement the insert and delete methods of a tri-na
  2. Delete is implemented and tested.
  3. Maintain integrity of Trinary Tree.
  
- //  Test Verificaion Criteria.
+ //Test Verificaion Criteria (see verifyTreeIntegrity method)
     1. the left node being values < parent
     2. the right node values > parent
     3. the middle node values == parent
- 
- 
- Tests:
- testInsert
- testDelete
  **/
 
-- (void)testA1_insert_usingStandardTestData
+//making sure our count matches our tree.
+- (void)testA1_treeCount
 {
     NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
-
-    [standardTree enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Node *newNode = [[Node alloc] init];
-        newNode.nodeContent = (NSNumber*)obj;
-        
-        NSLog(@"insertNode: %@", newNode.nodeContent);
-        [self.trinaryTree insertNode:newNode];
-        
-        //Our Node Category enumerator
-        [self.trinaryTree enumerateNodesUsingBlock:^(Node *node, BOOL *stop) {
-            NSLog(@"enumerateNodesUsingBlock: %@", node.nodeContent);
-            if(node.leftNode)
-                XCTAssertTrue([node.leftNode.nodeContent intValue] < [node.nodeContent intValue], @"Left Node are greater than Parent. Parent:%@ leftNode:%@", node.nodeContent, node.leftNode.nodeContent);
-            if(node.rightNode)
-                XCTAssertTrue([node.rightNode.nodeContent intValue]>[node.nodeContent intValue], @"Right Node is Less than Parent. Parent:%@ leftNode:%@", node.nodeContent, node.rightNode.nodeContent);
-            if(node.middleNode)
-                XCTAssertTrue([node.middleNode.nodeContent intValue] == [node.nodeContent intValue], @"Middle Node is not Equal to Parent:%@ middle node:%@", node.nodeContent, node.middleNode.nodeContent);
-        } andRootNode:self.trinaryTree.rootNode];
-    }];
-    
-//We added all the test data to the tree, but how do we verify the correct results to our specifications as follows?
-//    1. left node being values < parent
-//    2. the right node values > parent
-//    3. the middle node values == parent
-// We must be able to traverse the whole Tree.
-    /**
-     
-     Options:
-        1.  Traverse the Tree recursively here in the test.
-            Nah: A bit messy and complicated for a test.
-        2.  Implement a function on TrinaryTreeTests to return the Tree in a NSArray (list).  Order will not matter, since the nodes will still maintain their references to each other.  In order to keep code that is un-used in production out of production code, we can use a Category to add the function for testing.
-            No: It does not feel clean enough.  A bit heavy passing around an Array.
-        
-        3.  Implement an enumaration with a block function similar to the NSArray function enumerateObjectsUsingBlock on our Node class.  This will allow us to walk the tree fully right here in the test class.  We can make this a category for now, but it has the potential to be promoted to production code.  Why?  Because it could replace functionality in production with more re-usable code.
-        Yes: Underpands Check - Profit
-     
-     **/
-}
-
-/*
- How to test our Delete...
-    1.  We will still want to maintain our 3 laws up above, so we'll test those after a delete operation.
-    2.  We will also want to remove multiple times with a variety of tree sizes and numbers.
-    3.  Lets keep track of the count after each delete as well.  If we remove one and the count went doen 2, we have a problem.  Also, what if the middle node is 2, and we are asked to delete 2.
-*/
-//For this Test I added 3 to the test numbers.  Adding  2 - 2  - 3 nodes will create a situation that will fail our test (listed in #3 above).
-- (void)testA2_DeleteNode
-{
-    //Populate the tree.
-    NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
-    [standardTree enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Node *newNode = [[Node alloc] init];
-        newNode.nodeContent = (NSNumber*)obj;
-        NSLog(@"insertNode: %@", newNode.nodeContent);
-        [self.trinaryTree insertNode:newNode];
-    }];
-    [self.trinaryTree deleteNodeWithContent:2];
-    
-    //Check the Count
-    XCTAssertTrue([standardTree count] == [self.trinaryTree nodeCount], @"Our node count is off!  Check your insertNode method and tests.");
-    
-    
-    
-}
-
-//I like to making sure our count matches our tree.
-- (void)testA3_treeCount
-{
-    NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
-    [standardTree enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        Node *newNode = [[Node alloc] init];
-        newNode.nodeContent = (NSNumber*)obj;
-        NSLog(@"insertNode: %@", newNode.nodeContent);
-        [self.trinaryTree insertNode:newNode];
-    }];
+    [self populateTestTreeWithKey:@"standard"];
     XCTAssertTrue([standardTree count] == [self.trinaryTree nodeCount], @"Our node count is off!  Check your insert code and tests.");
 }
-//Re-run tests on my implemenation of TrinaryTree
+
+//Testing the class Node's smallestNode method
+- (void)testA2_smallestNode
+{
+    [self populateTestTreeWithKey:@"standard"];
+    Node *rootNode = self.trinaryTree.rootNode;
+    
+    Node *leftMostNode = rootNode;
+    while(leftMostNode.leftNode !=nil)
+        leftMostNode = leftMostNode.leftNode;
+    
+    int smallestNodeValueToTest = [leftMostNode.nodeContent intValue];
+    __block int expectedSmallestValue = [rootNode.nodeContent intValue];
+
+    Node *smallestNode = [rootNode smallestNode];
+    
+    //Our Node Category enumerator
+    [self.trinaryTree enumerateNodesUsingBlock:^(Node *node, BOOL *stop)
+    {
+        if(expectedSmallestValue>[node.nodeContent intValue])
+            expectedSmallestValue = [node.nodeContent intValue];
+    } andRootNode:rootNode];
+
+    XCTAssertTrue(smallestNodeValueToTest<=[smallestNode.nodeContent intValue], @"[Node smallestNode] Expected:%d Actual:%d", expectedSmallestValue, [smallestNode.nodeContent intValue]);
+    XCTAssertTrue(smallestNodeValueToTest<=expectedSmallestValue, @"Left most Node is not the smallest: Expected:%d Actual:%d", expectedSmallestValue, smallestNodeValueToTest);
+    XCTAssertTrue([smallestNode.nodeContent intValue]<=expectedSmallestValue, @"[Node smallestNode] method failed. Left most Node is not the smallest.  Expected:%d Actual:%d", expectedSmallestValue, [smallestNode.nodeContent intValue]);
+}
+
+//Adds nodes from standard test data, and verifies tree's integrity after each add.
+- (void)testA3_insertNodes
+{
+    NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
+
+    [standardTree enumerateObjectsUsingBlock:^(NSNumber *nodeNumber, NSUInteger idx, BOOL *stop) {
+        Node *newNode = [[Node alloc] init];
+        newNode.nodeContent = nodeNumber;
+        
+        NSLog(@"insertNode: %@", newNode.nodeContent);
+        [self.trinaryTree insertNode:newNode];
+        
+        //We check every node for integrity after each add.
+        [self verifyTreeIntegrity];
+    }];
+}
+
+//Populates tree, removes a node, checks the count and tree integrity.  Repeats the process for every node.
+- (void)testA4_deleteNode
+{
+     NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
+    //re-populates tree and removes a diferent node.  Until all nodes have been removed.
+    [standardTree enumerateObjectsUsingBlock:^(NSNumber *nodeNumber, NSUInteger idx, BOOL *stop) {
+
+        //Populate the tree.
+        [self populateTestTreeWithKey:@"standard"];
+        [self verifyTreeIntegrity];
+        
+        int startingCount = [self.trinaryTree nodeCount];
+        Node *nodeToDelete= [self.trinaryTree.rootNode nodeWithValue:[nodeNumber intValue]];
+        NSLog(@"nodeNumber:%@",nodeNumber);
+        [self.trinaryTree deleteNode:nodeToDelete];
+        
+        //Making sure we maintain our 3 laws of node integrity
+        [self verifyTreeIntegrity];
+        
+        NSLog(@"Testing removal of node:%@ Index:%i",nodeToDelete.nodeContent, idx);
+        NSLog(@"%i  [self.trinaryTree nodeCount]:%i", startingCount-idx, [self.trinaryTree nodeCount]);
+        if(!nodeToDelete.nodeContent)
+        {
+            NSLog(@"nodeToDelete:%@", nodeToDelete);
+        }
+        //Check the Count
+        XCTAssertTrue((startingCount-1) == [self.trinaryTree nodeCount], @"Removing Node:%@ Our node count is wrong after Delete. Tree Counts: Expected:%u Actual%d", nodeToDelete, (startingCount-1), [self.trinaryTree nodeCount]);
+    }];
+    
+}
+
 
 @end

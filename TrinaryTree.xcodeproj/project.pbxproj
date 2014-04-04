@@ -17,8 +17,8 @@
 		DE88DDD2177027890023B95A /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE88DDD1177027890023B95A /* MainStoryboard_iPhone.storyboard */; };
 		DE8A42F712AC182A00BB7261 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DE8A42F612AC182A00BB7261 /* README.md */; };
 		DEB1C65712AC2B0000662679 /* AddNodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB1C65512AC2B0000662679 /* AddNodeViewController.m */; };
-		DEBA103512B081C500015193 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DEBA103412B081C500015193 /* Icon.png */; };
 		DEE93BBD12AC316700379D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEE93BBC12AC316700379D72 /* Localizable.strings */; };
+		F1553E2D18EE594400BA6A60 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1553E2C18EE594400BA6A60 /* Icon.png */; };
 		F1910CB018EA6B0C00AE85B6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1910CAF18EA6B0B00AE85B6 /* XCTest.framework */; };
 		F1910CB118EA6B0C00AE85B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		F1910CB218EA6B0C00AE85B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -59,8 +59,8 @@
 		DE8A42F612AC182A00BB7261 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		DEB1C65412AC2B0000662679 /* AddNodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNodeViewController.h; sourceTree = "<group>"; };
 		DEB1C65512AC2B0000662679 /* AddNodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNodeViewController.m; sourceTree = "<group>"; };
-		DEBA103412B081C500015193 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		DEE93BBA12AC313900379D72 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F1553E2C18EE594400BA6A60 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		F1910CAE18EA6B0B00AE85B6 /* TrinaryTreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrinaryTreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1910CAF18EA6B0B00AE85B6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F1910CB518EA6B0C00AE85B6 /* TrinaryTreeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TrinaryTreeTests-Info.plist"; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DEBA103412B081C500015193 /* Icon.png */,
+				F1553E2C18EE594400BA6A60 /* Icon.png */,
 				DE6A69CD176FF867002FE959 /* Default-568h@2x.png */,
 				DE88DDD1177027890023B95A /* MainStoryboard_iPhone.storyboard */,
 				8D1107310486CEB800E47090 /* TrinaryTree-Info.plist */,
@@ -252,6 +252,9 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 8LCH3UBTN9;
+					};
 					F1910CAD18EA6B0B00AE85B6 = {
 						TestTargetID = 1D6058900D05DD3D006BFB54;
 					};
@@ -286,8 +289,8 @@
 				DE8A42F712AC182A00BB7261 /* README.md in Resources */,
 				DEE93BBD12AC316700379D72 /* Localizable.strings in Resources */,
 				F1910CD018EA9CAE00AE85B6 /* TestTrees.plist in Resources */,
-				DEBA103512B081C500015193 /* Icon.png in Resources */,
 				DE6A69CE176FF867002FE959 /* Default-568h@2x.png in Resources */,
+				F1553E2D18EE594400BA6A60 /* Icon.png in Resources */,
 				DE88DDD2177027890023B95A /* MainStoryboard_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +365,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -379,6 +383,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = TrinaryTree_Prefix.pch;

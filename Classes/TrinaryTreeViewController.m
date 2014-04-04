@@ -37,6 +37,29 @@ const double kVerticalOffset = 50.0f;
     self.buttonNodeDictionary = [[NSMutableDictionary alloc] initWithCapacity:1];
     
     buttonTagIndex = 0;
+    
+    //Populate the tree with default data.
+    NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
+    [standardTree enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        Node *newNode = [[Node alloc] init];
+        newNode.nodeContent = (NSNumber*)obj;
+        NSLog(@"insertNode: %@", newNode.nodeContent);
+        [self.trinaryTree insertNode:newNode];
+    }];
+    
+    [self cleanViewAndShowTree];
+}
+
+- (NSArray*)treeTestNumbersWithKey:(NSString*)testKey
+{
+    //Test data will be loaded from a plist file and be loaded into the tree.
+    NSString *settingsPListPath = [[NSBundle mainBundle] pathForResource:@"TestTrees" ofType:@"plist"];
+    NSDictionary *settingsDictionary = [NSDictionary dictionaryWithContentsOfFile:settingsPListPath];
+    if(!settingsDictionary)
+    {
+        NSLog(@"The Test Trees Plist has the wrong path or is not targeted on the app target TrinaryTree.");
+    }
+    return [settingsDictionary objectForKey:testKey];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,7 +102,8 @@ const double kVerticalOffset = 50.0f;
         [self.buttonNodeDictionary removeObjectForKey:keyForANode];        
         
         NSLog(@"Deleting node %i", nodeForButton.nodeContent.intValue);
-        [self.trinaryTree deleteNode:nodeForButton]; 
+        [self.trinaryTree deleteNode:nodeForButton];
+        [self cleanViewAndShowTree];
     }
 }
 

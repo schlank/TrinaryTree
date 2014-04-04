@@ -21,8 +21,7 @@
 @property (nonatomic, strong) Node *rootNode;
 
 - (void)listTreeBranchStartingAtNode:(Node *)aNode;
-- (void)insertNode:(Node *)aNode;
-- (void)deleteNode:(Node *)aNode;
-- (void)deleteNodeWithContent:(NSNumber*)nodeContent;
+- (void)insertNode:(Node *)node;
+- (void)deleteNode:(Node *)node;
 
 @end
