@@ -19,6 +19,8 @@
 		DEB1C65712AC2B0000662679 /* AddNodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB1C65512AC2B0000662679 /* AddNodeViewController.m */; };
 		DEE93BBD12AC316700379D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEE93BBC12AC316700379D72 /* Localizable.strings */; };
 		F1553E2D18EE594400BA6A60 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1553E2C18EE594400BA6A60 /* Icon.png */; };
+		F1553E3718EE5D4E00BA6A60 /* StringToLongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1553E3618EE5D4E00BA6A60 /* StringToLongTests.m */; };
+		F1553E3918EE5D7F00BA6A60 /* TestLongStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1553E3818EE5D7F00BA6A60 /* TestLongStrings.plist */; };
 		F1910CB018EA6B0C00AE85B6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1910CAF18EA6B0B00AE85B6 /* XCTest.framework */; };
 		F1910CB118EA6B0C00AE85B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		F1910CB218EA6B0C00AE85B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -61,6 +63,8 @@
 		DEB1C65512AC2B0000662679 /* AddNodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNodeViewController.m; sourceTree = "<group>"; };
 		DEE93BBA12AC313900379D72 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F1553E2C18EE594400BA6A60 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		F1553E3618EE5D4E00BA6A60 /* StringToLongTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringToLongTests.m; sourceTree = "<group>"; };
+		F1553E3818EE5D7F00BA6A60 /* TestLongStrings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestLongStrings.plist; sourceTree = "<group>"; };
 		F1910CAE18EA6B0B00AE85B6 /* TrinaryTreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrinaryTreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1910CAF18EA6B0B00AE85B6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		F1910CB518EA6B0C00AE85B6 /* TrinaryTreeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TrinaryTreeTests-Info.plist"; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				F1910CB918EA6B0C00AE85B6 /* TrinaryTreeTests.m */,
+				F1553E3618EE5D4E00BA6A60 /* StringToLongTests.m */,
 				F1910CC418EA75A600AE85B6 /* TestData */,
 				F1910CB418EA6B0C00AE85B6 /* Supporting Files */,
 			);
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				F1910CC518EA75A600AE85B6 /* TestTrees.plist */,
+				F1553E3818EE5D7F00BA6A60 /* TestLongStrings.plist */,
 			);
 			path = TestData;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1553E3918EE5D7F00BA6A60 /* TestLongStrings.plist in Resources */,
 				F1910CC618EA75A600AE85B6 /* TestTrees.plist in Resources */,
 				F1910CB818EA6B0C00AE85B6 /* InfoPlist.strings in Resources */,
 			);
@@ -327,6 +334,7 @@
 				F1910CCC18EA9A7800AE85B6 /* TrinaryTreeTests.m in Sources */,
 				F1AD7B2318EBD439005CAEFC /* TrinaryTree.m in Sources */,
 				F1AD7B2418EBD43C005CAEFC /* Node.m in Sources */,
+				F1553E3718EE5D4E00BA6A60 /* StringToLongTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

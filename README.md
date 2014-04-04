@@ -23,13 +23,15 @@ order:  5, 4, 9, 5, 7, 2, 2 --  the tree would look like this:
 ---
 Write a tri-nary tree in Objective C, and provide an interactive on iPhone and iPad.
 
-Updates:
+##Updates:
+    Upgraded project to Xcode 5.
+    Fixed iOS7 UI navigation bar issues.
+    Populates the UI with test data on app load.
+    Improved object oriented Insert function.
+    StringToLong Category on NSString.  See StringToLongTests XCTestCase for example.
 
-# Upgraded project to Xcode 5.
-# Fixed iOS7 UI navigation bar issues.
-# Improved object oriented Insert function.
-# Covered TineryTree and Node with Unit and Integration tests.
-##testA1_treeCount     //making sure our count matches our tree.
-##testA2_smallestNode  //Testing the class Node's smallestNode method
-##testA3_insertNodes   //Adds nodes from standard test data, and verifies tree's integrity after each add.
-##testA4_deleteNode    //Populates tree, removes a node, checks the count and tree integrity.  Repeats the process for every node.
+##Covered TineryTree and Node with Unit and Integration tests.
+    testA1_treeCount     //making sure our count matches our tree.
+    testA2_smallestNode  //Testing the class Node's smallestNode method
+    testA3_insertNodes   //Adds nodes from standard test data, and verifies tree's integrity after each add.
+    testA4_deleteNode    //Populates tree, removes a node, checks the count and tree integrity.  Repeats the process for every node.
