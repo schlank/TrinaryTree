@@ -8,6 +8,7 @@
 
 #import "TrinaryTreeAppDelegate.h"
 #import "TrinaryTreeViewController.h"
+#import "TestFlight.h"
 
 @implementation TrinaryTreeAppDelegate
 
@@ -15,6 +16,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // start of your application:didFinishLaunchingWithOptions // ...
+    [TestFlight takeOff:@"2245956e-fe36-4983-999b-af7f800c0f90"];
+    
     // Override point for customization after application launch.
     return YES;
 }
