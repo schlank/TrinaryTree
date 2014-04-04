@@ -27,6 +27,8 @@
 
 - (void)enumerateNodesUsingBlock:(void (^)(Node *node, BOOL *stop))block andRootNode:(Node*)currentNode
 {
+    if(self.rootNode==nil)
+        return;
     if(currentNode==nil)
         currentNode = self.rootNode;
     block(currentNode, NO);
@@ -100,9 +102,12 @@
     }];
 }
 
+- (NSInteger)getRandomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max
+{
+    return min + arc4random() % (max - min + 1);
+}
 
-
-//This verifies our 3 laws of Node integrity on each node in the true.
+//This verifies our 3 laws of Node integrity on each node in the true.  And also checks the tree count.
 //1. the left node being values < parent
 //2. the right node values > parent
 //3. the middle node values == parent
@@ -238,6 +243,37 @@ As a mobile dev, I'd like to implement the insert and delete methods of a tri-na
         //Check the Count
         XCTAssertTrue((startingCount-1) == [self.trinaryTree nodeCount], @"Removing Node:%@ Our node count is wrong after Delete. Tree Counts: Expected:%u Actual%d", nodeToDelete, (startingCount-1), [self.trinaryTree nodeCount]);
     }];
+}
+
+- (void)testA5_insertAndDelete100RandomNumbers
+{
+    int randomTestNumbers = 100;
+    NSMutableArray *randomNodeArray = [NSMutableArray array];
+    for(int x=0;x<=randomTestNumbers;x++)
+    {
+        NSInteger randomNodeValue = [self getRandomNumberBetween:0 maxNumber:INT_MAX];
+        Node *newNode = [Node nodeWithNumber:[NSNumber numberWithInteger:randomNodeValue]];
+        [randomNodeArray addObject:newNode];
+    }
+    //Insert 100 Random Nodes
+    [randomNodeArray enumerateObjectsUsingBlock:^(Node *randomNode, NSUInteger idx, BOOL *stop) {
+        [self.trinaryTree insertNode:randomNode];
+        [self verifyTreeIntegrity];
+    }];
+    
+    XCTAssertTrue([self.trinaryTree nodeCount]==[randomNodeArray count],@" trinaryTree full: Actual:%d", [self.trinaryTree nodeCount]);
+    
+    //Insert 100 Random Nodes
+    [randomNodeArray enumerateObjectsUsingBlock:^(Node *randomNode, NSUInteger idx, BOOL *stop) {
+        [self.trinaryTree deleteNode:randomNode];
+        
+        //No efficient.  The nodeCount is costly.
+        if([self.trinaryTree nodeCount]>0)
+            [self verifyTreeIntegrity];
+    }];
+    
+    XCTAssertTrue([self.trinaryTree nodeCount]==0,@" trinaryTree Should be empty. Actual:%d", [self.trinaryTree nodeCount]);
+    
 }
 
 
