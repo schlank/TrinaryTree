@@ -8,6 +8,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "XCTestCase+Util.h"
 
 //Classes in test
 #import "TrinaryTree.h"
@@ -100,12 +101,6 @@
         NSLog(@"insertNode: %@", newNode.nodeContent);
         [self.trinaryTree insertNode:newNode];
     }];
-}
-
-//http://stackoverflow.com/questions/9678373/generate-random-numbers-between-two-numbers-in-objective-c
-- (NSInteger)getRandomNumberBetween:(NSInteger)min maxNumber:(NSInteger)max
-{
-    return min + arc4random() % (max - min + 1);
 }
 
 //This verifies our 3 laws of Node integrity on each node in the true.  And also checks the tree count.
@@ -276,6 +271,7 @@ As a mobile dev, I'd like to implement the insert and delete methods of a tri-na
     XCTAssertTrue([self.trinaryTree nodeCount]==0,@" trinaryTree Should be empty. Actual:%d", [self.trinaryTree nodeCount]);
     
 }
+
 //As a curiousity I implemented the solution on this Gist: https://gist.github.com/dydt/870393  and verified a concern a comment had.
 - (void)testA6_deleteNodeByValueWith20RandomNumbers
 {
@@ -304,7 +300,7 @@ As a mobile dev, I'd like to implement the insert and delete methods of a tri-na
             [self verifyTreeIntegrity];
     }];
     //We suspect this delete will not work, and verify with this XCTAssert
-    XCTAssertFalse([self.trinaryTree nodeCount]>0,@" trinaryTree Should be empty. Actual:%d", [self.trinaryTree nodeCount]);
+    XCTAssertFalse([self.trinaryTree nodeCount]==0,@"TrinaryTree is empty, but we were expecting Nodes!. Actual:%d", [self.trinaryTree nodeCount]);
 }
 
 

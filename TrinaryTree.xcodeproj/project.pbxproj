@@ -18,6 +18,7 @@
 		DE8A42F712AC182A00BB7261 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DE8A42F612AC182A00BB7261 /* README.md */; };
 		DEB1C65712AC2B0000662679 /* AddNodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB1C65512AC2B0000662679 /* AddNodeViewController.m */; };
 		DEE93BBD12AC316700379D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEE93BBC12AC316700379D72 /* Localizable.strings */; };
+		F105154018EFBDF00080AB16 /* XCTestCase+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = F105153F18EFBDF00080AB16 /* XCTestCase+Util.m */; };
 		F1553E2D18EE594400BA6A60 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1553E2C18EE594400BA6A60 /* Icon.png */; };
 		F1553E3718EE5D4E00BA6A60 /* StringToLongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1553E3618EE5D4E00BA6A60 /* StringToLongTests.m */; };
 		F1553E3918EE5D7F00BA6A60 /* TestLongStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1553E3818EE5D7F00BA6A60 /* TestLongStrings.plist */; };
@@ -64,6 +65,8 @@
 		DEB1C65412AC2B0000662679 /* AddNodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNodeViewController.h; sourceTree = "<group>"; };
 		DEB1C65512AC2B0000662679 /* AddNodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNodeViewController.m; sourceTree = "<group>"; };
 		DEE93BBA12AC313900379D72 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F105153E18EFBDF00080AB16 /* XCTestCase+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCTestCase+Util.h"; sourceTree = "<group>"; };
+		F105153F18EFBDF00080AB16 /* XCTestCase+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCTestCase+Util.m"; sourceTree = "<group>"; };
 		F1553E2C18EE594400BA6A60 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		F1553E3618EE5D4E00BA6A60 /* StringToLongTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringToLongTests.m; sourceTree = "<group>"; };
 		F1553E3818EE5D7F00BA6A60 /* TestLongStrings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestLongStrings.plist; sourceTree = "<group>"; };
@@ -208,6 +211,8 @@
 				F1553E3618EE5D4E00BA6A60 /* StringToLongTests.m */,
 				F1910CC418EA75A600AE85B6 /* TestData */,
 				F1910CB418EA6B0C00AE85B6 /* Supporting Files */,
+				F105153E18EFBDF00080AB16 /* XCTestCase+Util.h */,
+				F105153F18EFBDF00080AB16 /* XCTestCase+Util.m */,
 			);
 			path = TrinaryTreeTests;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F105154018EFBDF00080AB16 /* XCTestCase+Util.m in Sources */,
 				F1910CCC18EA9A7800AE85B6 /* TrinaryTreeTests.m in Sources */,
 				F1AD7B2318EBD439005CAEFC /* TrinaryTree.m in Sources */,
 				F1AD7B2418EBD43C005CAEFC /* Node.m in Sources */,
