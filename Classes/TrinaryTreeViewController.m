@@ -39,7 +39,7 @@ const double kVerticalOffset = 50.0f;
     buttonTagIndex = 0;
     
     //Populate the tree with default data.
-    NSArray *standardTree = [self treeTestNumbersWithKey:@"gistexample"];
+    NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
     [standardTree enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         Node *newNode = [[Node alloc] init];
         newNode.nodeContent = (NSNumber*)obj;
