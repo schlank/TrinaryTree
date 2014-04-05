@@ -27,7 +27,7 @@ Write a tri-nary tree in Objective C, and provide an interactive on iPhone and i
     Upgraded project to Xcode 5.
     Fixed iOS7 UI navigation bar issues.
     Populates the UI with test data on app load.
-    Improved object oriented Insert function.
+    Improved Insert function to be much more object oriented.
     StringToLong Category on NSString.  See StringToLongTests XCTestCase for example.
 
 ##Covered TineryTree and Node with Unit and Integration tests.

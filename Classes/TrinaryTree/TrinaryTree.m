@@ -54,6 +54,71 @@
     }
 }
 
+
+/*Helper function for deletion.  When you delete a key with children,
+ *you want to make sure that it's replaced with either itself or its successor,
+ *which is the minimum of the right subtree.
+ */
+//public TrinaryNode findMin(node) {
+//    if (node != null) {
+//        while (node.left != null) {
+//            return findMin(node.left);
+//        }
+//    }
+//    return node;
+//}
+
+/*General method that deletes a node.  Starts at a node, then travels down until it replaces
+ *a node with either itself (the middle child), its successor (the minimum of the right
+ *subtree, or its left child (which can be null), in that order.
+ */
+//public TrinaryNode delete(key, node) {
+//    if (node == null) {
+//        throw new RuntimeException();
+//    } else if (key < node.key) {
+//        node.left = delete(key, node.left);
+//    } else if (key > node.key) {
+//        node.right = delete(key, node.right);
+//    } else {
+//        if (node.middle != null) {
+//            node.middle = delete(key, node.middle);
+//        } else if (node.right != null) {
+//            node.key = findMin(node.right).key;
+//            node.right = delete(findMin(node.right).key, node.right);
+//        } else {
+//            node = node.left;
+//        }
+//    }
+//    return node;
+//}
+
+- (Node*)deleteNode:(Node*)targetNode fromRoot:(Node*)currentNode
+{
+    if (currentNode == nil || targetNode == nil)
+        return nil;
+    
+    int targetNodeValue = [targetNode.nodeContent intValue];
+    
+    if (targetNodeValue < [currentNode.nodeContent intValue])
+        currentNode.leftNode = [self deleteNode:targetNode fromRoot:currentNode.leftNode];
+    else if (targetNodeValue > [currentNode.nodeContent intValue])
+        currentNode.rightNode = [self deleteNode:targetNode fromRoot:currentNode.rightNode];
+    else
+    {
+        if (currentNode.middleNode != nil)
+            currentNode.middleNode = [self deleteNode:targetNode fromRoot:currentNode.middleNode];
+        else if (currentNode.rightNode != nil)
+        {
+            Node *smallestRightNode = [currentNode.rightNode smallestNode];
+            currentNode.nodeContent = smallestRightNode.nodeContent;
+            currentNode.rightNode = [self deleteNode:smallestRightNode fromRoot:currentNode.rightNode];
+        }
+        else
+            currentNode = currentNode.leftNode;
+    }
+    return currentNode;
+}
+
 - (void)deleteNode:(Node *)aNode
 {
     NSLog(@"start TrinaryTree deleteNode:");
@@ -123,6 +188,7 @@
         [self insertNode:rightOrphanNode];
     }
     NSLog(@"end TrinaryTree deleteNode:");
+    [self.delegate trinaryTreeWillDeleteNode:aNode];
 }
 
 @end

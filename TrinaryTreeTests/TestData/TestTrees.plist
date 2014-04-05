@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>gistexample</key>
+	<array>
+		<integer>4</integer>
+		<string>6</string>
+		<string>6</string>
+	</array>
 	<key>standard</key>
 	<array>
 		<string>5</string>

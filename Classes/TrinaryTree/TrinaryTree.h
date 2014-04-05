@@ -23,5 +23,6 @@
 - (void)listTreeBranchStartingAtNode:(Node *)aNode;
 - (void)insertNode:(Node *)node;
 - (void)deleteNode:(Node *)node;
+- (Node*)deleteNode:(Node*)targetNode fromRoot:(Node*)currentNode;
 
 @end
