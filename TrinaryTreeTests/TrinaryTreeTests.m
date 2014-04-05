@@ -273,7 +273,7 @@ As a mobile dev, I'd like to implement the insert and delete methods of a tri-na
 }
 
 //As a curiousity I implemented the solution on this Gist: https://gist.github.com/dydt/870393  and verified a concern a comment had.
-- (void)testA6_deleteNodeByValueWith20RandomNumbers
+- (void)testA6_alternativeDeleteWith20RandomNumbers
 {
     int randomTestNumbers = 20;
     NSMutableArray *randomNodeArray = [NSMutableArray array];
