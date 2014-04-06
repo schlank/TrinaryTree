@@ -11,7 +11,7 @@
 
 @protocol TrinaryTreeDelegate <NSObject>
 - (void)trinaryTreeDidInsertNode:(Node *)aNode;
-- (void)trinaryTreeWillDeleteNode:(Node *)aNode;
+- (void)trinaryTreeDidDeleteNode;
 @end
 
 @interface TrinaryTree : NSObject

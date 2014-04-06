@@ -50,47 +50,9 @@
     else
     {
         [self.rootNode insertNode:node];
-        [self.delegate trinaryTreeDidInsertNode:node];
     }
+    [self.delegate trinaryTreeDidInsertNode:node];
 }
-
-
-/*Helper function for deletion.  When you delete a key with children,
- *you want to make sure that it's replaced with either itself or its successor,
- *which is the minimum of the right subtree.
- */
-//public TrinaryNode findMin(node) {
-//    if (node != null) {
-//        while (node.left != null) {
-//            return findMin(node.left);
-//        }
-//    }
-//    return node;
-//}
-
-/*General method that deletes a node.  Starts at a node, then travels down until it replaces
- *a node with either itself (the middle child), its successor (the minimum of the right
- *subtree, or its left child (which can be null), in that order.
- */
-//public TrinaryNode delete(key, node) {
-//    if (node == null) {
-//        throw new RuntimeException();
-//    } else if (key < node.key) {
-//        node.left = delete(key, node.left);
-//    } else if (key > node.key) {
-//        node.right = delete(key, node.right);
-//    } else {
-//        if (node.middle != null) {
-//            node.middle = delete(key, node.middle);
-//        } else if (node.right != null) {
-//            node.key = findMin(node.right).key;
-//            node.right = delete(findMin(node.right).key, node.right);
-//        } else {
-//            node = node.left;
-//        }
-//    }
-//    return node;
-//}
 
 - (Node*)deleteNode:(Node*)targetNode fromRoot:(Node*)currentNode
 {
@@ -119,6 +81,63 @@
     return currentNode;
 }
 
+-(Node*)deleteNode:(Node*)root forValue:(int)nodeValue
+{
+    
+    if (root == NULL)
+    {
+        return root;
+    }
+    
+    Node *curr = root;
+    Node *parent;
+    while (curr != nil && nodeValue != [curr.nodeContent intValue])
+    {
+        parent = curr;
+        curr = (nodeValue < [curr.nodeContent intValue]) ? curr.leftNode : curr.rightNode;
+    }
+    if (curr == NULL)
+    {
+        NSLog(@"item not found");
+        return root;
+    }
+    
+    Node *q, *suc;
+    if (curr.leftNode == NULL)
+    {
+        q = curr.rightNode;
+    }
+    else if (curr.rightNode == NULL)
+    {
+        q = curr.leftNode;
+    }
+    else
+    {
+        //obtain in order successor
+        suc = curr.rightNode;
+        while (suc.leftNode != NULL)
+        {
+            suc = suc.leftNode;
+        }
+        suc.leftNode = curr.leftNode;
+        q = curr.rightNode;
+    }
+    if (parent == NULL)
+    {
+        return q;
+    }
+    if (curr == parent.leftNode)
+    {
+        parent.leftNode = q;
+    }
+    else
+    {
+        parent.rightNode = q;
+    }
+    curr = NULL;
+    return root;
+}
+
 - (void)deleteNode:(Node *)aNode
 {
     NSLog(@"start TrinaryTree deleteNode:");
@@ -135,23 +154,30 @@
     Node *middleOrphanNode = aNode.middleNode;
     Node *rightOrphanNode = aNode.rightNode;
     
+    
+    Node *parentNode = [self.rootNode parentNodeWithChildNode:aNode];
+    
+    //(Phil)We can use the parentNode set during the insert and stored on the Node object
+    //but the existance of the parentNode violates the trinary tree.  ParentNode gives the ability to travel up
+    //The tree, and it is my understanding that a trinary tree does not allow for that.
+    //aNode.parentNode
+    
     // If aNode has a parent, remove parent's reference to aNode.
     // This will reduce aNode's retain count
-    if (aNode.parentNode)
+    if (parentNode)
     {
         // Is aNode the leftChild of it's parent?
-        if (aNode == aNode.parentNode.leftNode)
+        if (aNode == parentNode.leftNode)
         {
-            // Disconnect aNode parent's link to aNode
-            aNode.parentNode.leftNode = nil;
+            parentNode.leftNode = nil;
         }
-        else if (aNode == aNode.parentNode.middleNode)
+        else if (aNode == parentNode.middleNode)
         {
-            aNode.parentNode.middleNode = nil;
+            parentNode.middleNode = nil;
         }
-        else if (aNode == aNode.parentNode.rightNode)
+        else if (aNode == parentNode.rightNode)
         {
-            aNode.parentNode.rightNode = nil;
+            parentNode.rightNode = nil;
         }
     }
     
@@ -160,10 +186,6 @@
     {
         self.rootNode = nil;
     }
-    
-    // NOTE:  I think this statement caused a crash when positioned earlier in the method.
-    // send delegate message with reference to node before delete node
-    [self.delegate trinaryTreeWillDeleteNode:aNode];
     
     // make sure we don't try to use a bad reference
     aNode = nil;
@@ -174,21 +196,20 @@
     // If middle node exists, reconnect it first to minimize changes to tree appearance.
     if (middleOrphanNode)
     {
-        middleOrphanNode.parentNode = nil;
         [self insertNode:middleOrphanNode];
     }
     if (leftOrphanNode)
     {
-        leftOrphanNode.parentNode = nil;
         [self insertNode:leftOrphanNode];
     }
     if (rightOrphanNode)
     {
-        rightOrphanNode.parentNode = nil;
         [self insertNode:rightOrphanNode];
     }
+    
+    //Inform our delegates.  Update the UI and verify our counts.
+    [self.delegate trinaryTreeDidDeleteNode];
     NSLog(@"end TrinaryTree deleteNode:");
-    [self.delegate trinaryTreeWillDeleteNode:aNode];
 }
 
 @end
