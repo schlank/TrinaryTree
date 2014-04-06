@@ -41,7 +41,7 @@
         if(self.leftNode==nil)
         {
             self.leftNode = newNode;
-            newNode.parentNode = self;
+//            newNode.parentNode = self;
         }
         else
             [self.leftNode insertNode:newNode];
@@ -50,7 +50,7 @@
     {
         if(self.rightNode==nil)
         {
-            newNode.parentNode = self;
+//            newNode.parentNode = self;
             self.rightNode = newNode;
         }
         else
@@ -60,7 +60,7 @@
     {
         if(self.middleNode==nil)
         {
-            newNode.parentNode = self;
+//            newNode.parentNode = self;
             self.middleNode = newNode;
         }
         else
@@ -98,6 +98,35 @@
         return self;
     else
         return [self.leftNode smallestNode];
+}
+
+
+//We compare the Nodes and not the int value because we are looking for the actual
+//Parent that has the reference to our child node.
+- (BOOL)hasChildNode:(Node*)childNode
+{
+    if(self.leftNode == childNode ||
+       self.middleNode == childNode ||
+       self.rightNode == childNode)
+    {
+        return YES;
+    }
+    return NO;
+}
+
+- (Node*)parentNodeWithChildNode:(Node*)childNode
+{
+    if([self hasChildNode:childNode])
+        return self;
+    
+    int rootNodeValue = [self.nodeContent intValue];
+    int nodeValue = [childNode.nodeContent intValue];
+    if(rootNodeValue > nodeValue)
+        return [self.leftNode parentNodeWithChildNode:childNode];
+    else if(rootNodeValue < nodeValue)
+        return [self.rightNode parentNodeWithChildNode:childNode];
+    else
+        return nil;
 }
 
 //leafMostNode: starting from currentNode, the node when these three prevent it from traversing down.
