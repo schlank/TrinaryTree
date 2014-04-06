@@ -21,7 +21,7 @@ order:  5, 4, 9, 5, 7, 2, 2 --  the tree would look like this:
       2
 
 ---
-Write a tri-nary tree in Objective C, and provide an interactive on iPhone and iPad.
+Write a Trinary tree in Objective C, and provide an interactive on iPhone and iPad.
 
 #Updates:
     Upgraded project to Xcode 5.
@@ -30,13 +30,24 @@ Write a tri-nary tree in Objective C, and provide an interactive on iPhone and i
     Improved Insert function to be much more object oriented.
     StringToLong Category on NSString.  See StringToLongTests XCTestCase for example.
 
-#Covered TineryTree and Node with Unit and Integration tests.
+#Covered TrinaryTree and Node with Unit and Integration tests.
     testA1_treeCount     //making sure our count matches our tree.
     testA2_smallestNode  //Testing the class Node's smallestNode method
     testA3_insertNodes   //Adds nodes from standard test data, and verifies tree's integrity after each add.
     testA4_deleteNode    //Populates tree, removes a node, checks the count and tree integrity.  Repeats the process for every node.
     testA5_insertAndDelete100RandomNumbers //Inserts 100 and deletes them all.
     testA6_alternativeDeleteWith20RandomNumbers // An alternative Delete function test
+        The test data and delete function from Gist: https://gist.github.com/dydt/870393
+        4
+         \
+          6
+          |
+          6
+    Results in 6
+                \
+                 6
     testA7_alternativeDeleteWithGistTestCase ////This tests the same test case as A6, but with our delete function
+    
+
     
 # Interested in being a Beta Tester on Test Flight?  Join the team here: http://tflig.ht/1dVfM9K
