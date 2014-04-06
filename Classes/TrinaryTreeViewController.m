@@ -113,12 +113,13 @@ const double kVerticalOffset = 50.0f;
     [self cleanViewAndShowTree];
 }
 
-- (void)trinaryTreeWillDeleteNode:(Node *)aNode
+- (void)trinaryTreeDidDeleteNode
 {
     NSLog(@"in TrinaryTreeViewController trinaryTreeWillDeleteNode:");
     // cleanViewAndShowTree empties the entire buttonNodeDictionary
     [self cleanViewAndShowTree];
 }
+
 
 #pragma mark - View methods
 - (void)cleanViewAndShowTree

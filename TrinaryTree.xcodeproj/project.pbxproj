@@ -19,6 +19,7 @@
 		DEB1C65712AC2B0000662679 /* AddNodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB1C65512AC2B0000662679 /* AddNodeViewController.m */; };
 		DEE93BBD12AC316700379D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEE93BBC12AC316700379D72 /* Localizable.strings */; };
 		F105154018EFBDF00080AB16 /* XCTestCase+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = F105153F18EFBDF00080AB16 /* XCTestCase+Util.m */; };
+		F105154118F0C81A0080AB16 /* TestLongStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1553E3818EE5D7F00BA6A60 /* TestLongStrings.plist */; };
 		F1553E2D18EE594400BA6A60 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1553E2C18EE594400BA6A60 /* Icon.png */; };
 		F1553E3718EE5D4E00BA6A60 /* StringToLongTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F1553E3618EE5D4E00BA6A60 /* StringToLongTests.m */; };
 		F1553E3918EE5D7F00BA6A60 /* TestLongStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1553E3818EE5D7F00BA6A60 /* TestLongStrings.plist */; };
@@ -331,6 +332,7 @@
 				DEE93BBD12AC316700379D72 /* Localizable.strings in Resources */,
 				F1910CD018EA9CAE00AE85B6 /* TestTrees.plist in Resources */,
 				DE6A69CE176FF867002FE959 /* Default-568h@2x.png in Resources */,
+				F105154118F0C81A0080AB16 /* TestLongStrings.plist in Resources */,
 				F1553E2D18EE594400BA6A60 /* Icon.png in Resources */,
 				DE88DDD2177027890023B95A /* MainStoryboard_iPhone.storyboard in Resources */,
 			);

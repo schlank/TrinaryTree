@@ -37,5 +37,6 @@ Write a tri-nary tree in Objective C, and provide an interactive on iPhone and i
     testA4_deleteNode    //Populates tree, removes a node, checks the count and tree integrity.  Repeats the process for every node.
     testA5_insertAndDelete100RandomNumbers //Inserts 100 and deletes them all.
     testA6_alternativeDeleteWith20RandomNumbers // An alternative Delete function test
+    testA7_alternativeDeleteWithGistTestCase ////This tests the same test case as A6, but with our delete function
     
 # Interested in being a Beta Tester on Test Flight?  Join the team here: http://tflig.ht/1dVfM9K
