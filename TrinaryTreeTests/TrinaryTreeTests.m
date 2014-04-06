@@ -14,7 +14,7 @@
 #import "TrinaryTree.h"
 #import "Node.h"
 
-
+static NSString *testDataPlistFile = @"TestTrees";
 
 //Test Friend Category
 @interface TrinaryTree (TestFriend)
@@ -72,15 +72,15 @@
 {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-    self.trinaryTree.delegate = nil;
     self.trinaryTree = nil;
 }
 
+#pragma mark - Trinary Tree Delegate Methods
 //Fetch our test data by key from our test plist file.
 - (NSArray*)treeTestNumbersWithKey:(NSString*)testKey
 {
     //Test data will be loaded from a plist file and be loaded into the tree.
-    NSString *settingsPListPath = [[NSBundle mainBundle] pathForResource:@"TestTrees" ofType:@"plist"];
+    NSString *settingsPListPath = [[NSBundle mainBundle] pathForResource:testDataPlistFile ofType:@"plist"];
     NSDictionary *settingsDictionary = [NSDictionary dictionaryWithContentsOfFile:settingsPListPath];
     if(!settingsDictionary)
     {
@@ -95,7 +95,7 @@
     //Reset the tree.
     self.trinaryTree = nil;
     self.trinaryTree = [[TrinaryTree alloc] init];
-    NSArray *standardTree = [self treeTestNumbersWithKey:@"standard"];
+    NSArray *standardTree = [self treeTestNumbersWithKey:testKey];
     [standardTree enumerateObjectsUsingBlock:^(NSNumber *num, NSUInteger idx, BOOL *stop) {
         Node *newNode = [Node nodeWithNumber:num];
         NSLog(@"insertNode: %@", newNode.nodeContent);
@@ -289,20 +289,40 @@ As a mobile dev, I'd like to implement the insert and delete methods of a tri-na
         [self verifyTreeIntegrity];
     }];
     
-    XCTAssertTrue([self.trinaryTree nodeCount]==[randomNodeArray count],@" trinaryTree full: Actual:%d", [self.trinaryTree nodeCount]);
+    XCTAssertTrue([self.trinaryTree nodeCount]==[randomNodeArray count],@" trinaryTree count incorrect when traversed: Actual:%d", [self.trinaryTree nodeCount]);
     
     //Delete the 20 Random Nodes
     [randomNodeArray enumerateObjectsUsingBlock:^(Node *randomNode, NSUInteger idx, BOOL *stop) {
         self.trinaryTree.rootNode = [self.trinaryTree deleteNode:randomNode fromRoot:self.trinaryTree.rootNode];
         
-        //No efficient.  The nodeCount is costly.
-        if([self.trinaryTree nodeCount]>0)
+        if([self.trinaryTree nodeCount]>0) //Costly
             [self verifyTreeIntegrity];
     }];
+    
     //We suspect this delete will not work, and verify with this XCTAssert
-    XCTAssertFalse([self.trinaryTree nodeCount]==0,@"TrinaryTree is empty, but we were expecting Nodes!. Actual:%d", [self.trinaryTree nodeCount]);
+    XCTAssertFalse([self.trinaryTree nodeCount]==0, @"TrinaryTree (nodeCount) is empty, but we were expecting Nodes!. Actual:%d", [self.trinaryTree nodeCount]);
 }
 
+//As a curiousity I implemented the solution on this Gist: https://gist.github.com/dydt/870393  and verified a concern a comment had.
+//This tests the same test case, but with our delete function
+- (void)testA7_alternativeDeleteWithGistTestCase
+{
+    NSArray *gistDataArray = [self treeTestNumbersWithKey:@"gistexample"];
+    //Insert Nodes 4 \ 6 - 6   From comment: https://gist.github.com/dydt/870393
+    [gistDataArray enumerateObjectsUsingBlock:^(NSNumber *testNumber, NSUInteger idx, BOOL *stop) {
+        [self.trinaryTree insertNode:[Node nodeWithNumber:testNumber]];
+        [self verifyTreeIntegrity];
+    }];
+    
+    XCTAssertTrue([self.trinaryTree nodeCount]==[gistDataArray count],@" trinaryTree count incorrect when traversed: Actual:%d", [self.trinaryTree nodeCount]);
+    
+    Node *nodeToRemove = [self.trinaryTree.rootNode nodeWithValue:4];
+    [self.trinaryTree deleteNode:nodeToRemove];
 
+    [self verifyTreeIntegrity];
+   
+    //We suspect this delete will not work, and verify with this XCTAssert
+    XCTAssertTrue([self.trinaryTree nodeCount]==2, @"TrinaryTree (nodeCount):%d", [self.trinaryTree nodeCount]);
+}
 
 @end
