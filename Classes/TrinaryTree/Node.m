@@ -41,7 +41,6 @@
         if(self.leftNode==nil)
         {
             self.leftNode = newNode;
-//            newNode.parentNode = self;
         }
         else
             [self.leftNode insertNode:newNode];
@@ -50,7 +49,6 @@
     {
         if(self.rightNode==nil)
         {
-//            newNode.parentNode = self;
             self.rightNode = newNode;
         }
         else
@@ -60,7 +58,6 @@
     {
         if(self.middleNode==nil)
         {
-//            newNode.parentNode = self;
             self.middleNode = newNode;
         }
         else
